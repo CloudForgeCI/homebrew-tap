@@ -12,7 +12,14 @@ class CloudforgeCli < Formula
   depends_on "openjdk"
 
   def install
-    libexec.install Dir["*"]
+    # The release tarball wraps everything in its own "libexec/" directory (matching
+    # assemble-release.sh's layout), and Homebrew cds into the tarball's single top-level
+    # directory before running this block -- so Dir["*"] here is just ["libexec"], and
+    # libexec.install Dir["*"] copies that folder INTO this keg's own libexec, producing
+    # libexec/libexec/bin/cloudforge-cli. bin.install_symlink then points at the shallower,
+    # nonexistent libexec/bin/cloudforge-cli -- ln -s never validates its target, so this
+    # failed silently: `brew install` reported success while leaving a dangling symlink.
+    libexec.install Dir["libexec/*"]
     bin.install_symlink libexec/"bin/cloudforge-cli"
   end
 
