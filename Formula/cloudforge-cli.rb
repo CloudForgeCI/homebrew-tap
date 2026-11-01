@@ -1,9 +1,9 @@
 class CloudforgeCli < Formula
   desc "Non-interactive synth+deploy CLI for CloudForge apps against MiniStack/LocalStack"
   homepage "https://github.com/CloudForgeCI/cloudforge-cli"
-  url "https://github.com/CloudForgeCI/homebrew-tap/releases/download/v0.2.14/cloudforge-cli-0.2.14-darwin.tar.gz"
-  sha256 "1de9c2693e196386237f930c035bb46da650bc5a98c746a16e00a8f8d86e3168"
-  version "0.2.14"
+  url "https://github.com/CloudForgeCI/homebrew-tap/releases/download/v0.2.15/cloudforge-cli-0.2.15-darwin.tar.gz"
+  sha256 "b0a264127ef8956047705c2cdaa194c1b24ec2ef1f1420cce0c628c789dac248"
+  version "0.2.15"
   license "Apache-2.0"
 
   # jsii/aws-cdk-lib synthesis spawns a real node process itself (no pure-Java CDK synthesis
